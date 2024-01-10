@@ -1,0 +1,10 @@
+.navLink {
+  display: inline-flex;
+  padding: 10px;
+  background-color: transparent;
+}
+
+.active {
+  background-color: black;
+  color: white;
+}
