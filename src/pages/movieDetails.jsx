@@ -32,31 +32,43 @@ const MovieDetails = () => {
     <>
       <h3>Movie Details</h3>
       <p>
-        <Link to={backLinkRef.current}>Go back</Link>
+        <Link to={backLinkRef.current}>&#8592; Go back</Link>
       </p>
       {movieDetais && (
         <>
-          <img
-            src={
-              movieDetais.poster_path
-                ? `http://image.tmdb.org/t/p/w185${movieDetais.poster_path}`
-                : defaultImg
-            }
-            width={240}
-            alt=""
-          />
-          <h2>Title: {movieDetais.title}</h2>
-          <p>Overview: {movieDetais.overview}</p>
-          <p>Popularity: {Math.round(movieDetais.vote_average * 10)}%</p>
-          <div>
-            Genres:
-            {movieDetais.genres.map(genre => (
-              <p key={genre.id}>{genre.name}</p>
-            ))}
+          <div style={{ display: 'flex', gap: '20px' }}>
+            <img
+              src={
+                movieDetais.poster_path
+                  ? `http://image.tmdb.org/t/p/w185${movieDetais.poster_path}`
+                  : defaultImg
+              }
+              width={240}
+              alt=""
+            />
+            <div>
+              <p>
+                <span style={{ fontWeight: '600' }}>Title: </span>
+                {movieDetais.title}
+              </p>
+              <p>
+                <span style={{ fontWeight: '600' }}>Overview: </span>
+                {movieDetais.overview}
+              </p>
+              <p>
+                <span style={{ fontWeight: '600' }}>Popularity: </span>
+                {Math.round(movieDetais.vote_average * 10)}%
+              </p>
+              <p>
+                <span style={{ fontWeight: '600' }}>Genres: </span>
+                {movieDetais.genres.map(genre => (
+                  <span key={genre.id}>{genre.name}, </span>
+                ))}
+              </p>
+            </div>
           </div>
           <h3>Additional info:</h3>
-
-          <ul>
+          <ul style={{ listStyle: 'none' }}>
             <li>
               <NavLink to="cast">Cast</NavLink>
             </li>

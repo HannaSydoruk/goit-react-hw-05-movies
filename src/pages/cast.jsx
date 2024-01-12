@@ -18,22 +18,32 @@ const Cast = () => {
 
   return (
     <>
-      <h1>Cast</h1>
+      <h3>Cast</h3>
       <ul>
         {casts.map(cast => {
           return (
-            <li key={cast.id}>
-              <img
-                src={
-                  cast.profile_path
-                    ? `http://image.tmdb.org/t/p/w92${cast.profile_path}`
-                    : defaultImg
-                }
-                alt=""
-                width={180}
-              />
-              <p>{cast.name}</p>
-              <p>Character: {cast.character}</p>
+            <li key={cast.id} style={{ listStyle: 'none' }}>
+              <div
+                style={{
+                  display: 'flex',
+                  gap: '20px',
+                  paddingBottom: '20px',
+                }}
+              >
+                <img
+                  src={
+                    cast.profile_path
+                      ? `http://image.tmdb.org/t/p/w92${cast.profile_path}`
+                      : defaultImg
+                  }
+                  alt=""
+                  width={120}
+                />
+                <div>
+                  <p>{cast.name}</p>
+                  <p>Character: {cast.character}</p>
+                </div>
+              </div>
             </li>
           );
         })}

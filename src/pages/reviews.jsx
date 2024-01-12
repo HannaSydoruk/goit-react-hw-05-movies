@@ -16,7 +16,7 @@ const Reviews = () => {
 
   return (
     <>
-      <h1>Reviews</h1>
+      <h3>Reviews</h3>
       {reviews.length > 0 && (
         <ul>
           {reviews.map(review => {

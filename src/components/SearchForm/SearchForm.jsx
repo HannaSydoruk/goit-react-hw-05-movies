@@ -10,7 +10,9 @@ const SearchForm = ({ onSubmitHandler }) => {
         autoFocus
         placeholder="Search movies"
       />
-      <button type="submit">search</button>
+      <button type="submit" style={{ marginLeft: '20px' }}>
+        search
+      </button>
     </form>
   );
 };
