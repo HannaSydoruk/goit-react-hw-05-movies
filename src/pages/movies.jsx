@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { searchMovies } from 'api';
 import { NavLink, useSearchParams } from 'react-router-dom';
+import SearchForm from 'components/SearchForm/SearchForm';
+import MovieList from 'components/MovieList/MovieList';
 
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -24,28 +26,9 @@ const Movies = () => {
 
   return (
     <div>
-      <form onSubmit={onSubmitHandler}>
-        <input
-          type="text"
-          name="searchValue"
-          autoComplete="off"
-          autoFocus
-          placeholder="Search movies"
-        />
-        <button type="submit">search</button>
-      </form>
+      <SearchForm onSubmitHandler={onSubmitHandler} />
 
-      {movies.length > 0 && (
-        <ul>
-          {movies.map(movie => {
-            return (
-              <li key={movie.id}>
-                <NavLink to={`/movies/${movie.id}`}>{movie.title}</NavLink>
-              </li>
-            );
-          })}
-        </ul>
-      )}
+      {movies.length > 0 && <MovieList movies={movies} />}
     </div>
   );
 };

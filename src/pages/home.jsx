@@ -1,7 +1,6 @@
 import { getTrendings } from 'api';
+import MovieList from 'components/MovieList/MovieList';
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import css from './home.module.css';
 import { toast } from 'react-toastify';
 
 const Home = () => {
@@ -22,15 +21,7 @@ const Home = () => {
   return (
     <>
       <div>Trending movies</div>
-      <ul className={css.movielist}>
-        {trendingMovies?.map(trendingMovie => (
-          <li key={trendingMovie.id}>
-            <Link to={`/movies/${trendingMovie.id}`}>
-              {trendingMovie.title}
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <MovieList movies={trendingMovies} />
     </>
   );
 };
