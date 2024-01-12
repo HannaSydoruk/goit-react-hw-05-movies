@@ -62,7 +62,7 @@ const MovieDetails = () => {
               <p>
                 <span style={{ fontWeight: '600' }}>Genres: </span>
                 {movieDetais.genres.map(genre => (
-                  <span key={genre.id}>{genre.name}, </span>
+                  <span key={genre.id}>{genre.name} </span>
                 ))}
               </p>
             </div>
