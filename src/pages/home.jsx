@@ -2,6 +2,7 @@ import { getTrendings } from 'api';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import css from './home.module.css';
+import { toast } from 'react-toastify';
 
 const Home = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
@@ -11,7 +12,9 @@ const Home = () => {
       try {
         const data = await getTrendings();
         setTrendingMovies(_ => data);
-      } catch {}
+      } catch (error) {
+        toast(error.message);
+      }
     }
     loadTrendings();
   }, []);

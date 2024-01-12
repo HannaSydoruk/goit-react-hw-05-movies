@@ -29,7 +29,7 @@ const Reviews = () => {
           })}
         </ul>
       )}
-      {!reviews.length && <p>Sraka, vse propalo!</p>}
+      {!reviews.length && <p>We don't have any reviews for this movie</p>}
     </>
   );
 };
