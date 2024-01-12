@@ -1,12 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { getMovieDetails } from 'api';
-import { NavLink, Routes, Route, useParams } from 'react-router-dom';
+import {
+  NavLink,
+  Routes,
+  Route,
+  useParams,
+  useLocation,
+  Link,
+} from 'react-router-dom';
 import Cast from './cast';
 import Reviews from './reviews';
 
 const MovieDetails = () => {
   const [movieDetais, setMovieDetails] = useState(null);
   const { movieId } = useParams();
+  const location = useLocation();
+  const backLinkRef = useRef(location.state?.from ?? '/movies');
+  const defaultImg =
+    'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
 
   useEffect(() => {
     async function loadMovieDetails(id) {
@@ -19,10 +30,18 @@ const MovieDetails = () => {
   return (
     <>
       <h3>Movie Details</h3>
+      <p>
+        <Link to={backLinkRef.current}>Go back</Link>
+      </p>
       {movieDetais && (
         <>
           <img
-            src={`http://image.tmdb.org/t/p/w185${movieDetais.poster_path}`}
+            src={
+              movieDetais.poster_path
+                ? `http://image.tmdb.org/t/p/w185${movieDetais.poster_path}`
+                : defaultImg
+            }
+            width={240}
             alt=""
           />
           <h2>Title: {movieDetais.title}</h2>
