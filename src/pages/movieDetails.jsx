@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { Suspense, lazy, useEffect, useRef, useState } from 'react';
 import { getMovieDetails } from 'api';
 import {
   NavLink,
@@ -8,8 +8,9 @@ import {
   useLocation,
   Link,
 } from 'react-router-dom';
-import Cast from './cast';
-import Reviews from './reviews';
+
+const Cast = lazy(() => import('./cast'));
+const Reviews = lazy(() => import('./reviews'));
 
 const MovieDetails = () => {
   const [movieDetais, setMovieDetails] = useState(null);
@@ -64,10 +65,12 @@ const MovieDetails = () => {
             </li>
           </ul>
           <div>
-            <Routes>
-              <Route path="cast" element={<Cast />}></Route>
-              <Route path="reviews" element={<Reviews />}></Route>
-            </Routes>
+            <Suspense fallback={<div>Loading...</div>}>
+              <Routes>
+                <Route path="cast" element={<Cast />}></Route>
+                <Route path="reviews" element={<Reviews />}></Route>
+              </Routes>
+            </Suspense>
           </div>
         </>
       )}

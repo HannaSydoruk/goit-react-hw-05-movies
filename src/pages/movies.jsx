@@ -1,9 +1,8 @@
-import React, { lazy, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { searchMovies } from 'api';
 import { useSearchParams } from 'react-router-dom';
-
-const SearchForm = lazy(() => import('components/SearchForm/SearchForm'));
-const MovieList = lazy(() => import('components/MovieList/MovieList'));
+import SearchForm from 'components/SearchForm/SearchForm';
+import MovieList from './movieDetails';
 
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
