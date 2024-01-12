@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkreact_homework_template=self.webpackChunkreact_homework_template||[]).push([[683],{683:function(e,t,a){a.r(t);a(791);var r=a(184);t.default=function(e){var t=e.onSubmitHandler;return(0,r.jsxs)("form",{onSubmit:t,children:[(0,r.jsx)("input",{type:"text",name:"searchValue",autoComplete:"off",autoFocus:!0,placeholder:"Search movies"}),(0,r.jsx)("button",{type:"submit",children:"search"})]})}}}]);
-//# sourceMappingURL=683.bd8961cb.chunk.js.map
