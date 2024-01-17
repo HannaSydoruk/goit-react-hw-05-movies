@@ -1,4 +1,4 @@
-import { NavLink, Routes, Route } from 'react-router-dom';
+import { NavLink, Routes, Route, Navigate } from 'react-router-dom';
 import css from './App.module.css';
 import { Suspense, lazy } from 'react';
 
@@ -35,6 +35,7 @@ export const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/movies" element={<Movies />} />
             <Route path="/movies/:movieId/*" element={<MovieDetails />} />
+            <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </Suspense>
       </main>
